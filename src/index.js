@@ -58,25 +58,21 @@ module.exports = function toReadable (number) {
         if (arr[j] == 0) {
             return "zero";
         }
-        // 100 -> 900
         for (let q = 0; q < higherUnitsKeys.length; q++){
             if (number == higherUnitsKeys[q]) {
                 return HigherUnits[higherUnitsKeys[q]]; 
             }
         }
-        // 11 -> 19
         for (let w = 0; w < hundredsKeys.length; w++){
             if (number == hundredsKeys[w]) {
                 return Hundreds[hundredsKeys[w]]; 
             }
         }
-        // 10 -> 90
         for (let p = 0; p < dozensKeys.length; p++){
             if (number == dozensKeys[p]) {
                 return Dozens[dozensKeys[p]]; 
             }
         }
-        // 1 -> 9
         if (arr.length == 1) {
             for (let i = 0; i < unitsKeys.length; i++){
                 if (arr[j] == unitsKeys[i]) {
@@ -108,7 +104,6 @@ module.exports = function toReadable (number) {
         }
         if (arr.length == 3) {
             if (arr[0] > arr[1] && arr[1] > arr[2]) {
-                // console.log("1 > 2 > 3");
                 for (let u = unitsKeys.length; u >= 0; u--){
                     if (arr[0] == unitsKeys[u]) {
                         resultStr += Hundreds[hundredsKeys[u]];
@@ -121,7 +116,6 @@ module.exports = function toReadable (number) {
                     }
                 }
             } else if(arr[0] < arr[1] && arr[1] < arr[2]){
-                // console.log("1 < 2 < 3");
                 for (let t = 0; t < unitsKeys.length; t++){
                     if (arr[0] == unitsKeys[t]) {
                         resultStr += Hundreds[hundredsKeys[t]];
@@ -134,7 +128,6 @@ module.exports = function toReadable (number) {
                     }
                 }
             } else if(arr[0] > arr[1] && arr[1] <= arr[2]){
-                // console.log("1 > 2 < 3");
                 for (let x = unitsKeys.length; x >= 0; x--){
                     if (arr[0] == unitsKeys[x]) {
                         resultStr += Hundreds[hundredsKeys[x]];
@@ -157,7 +150,6 @@ module.exports = function toReadable (number) {
                     }
                 }    
             } else{
-                // console.log("1 < 2 > 3");
                 for (let h = 0; h < unitsKeys.length; h++){
                     if (arr[0] == unitsKeys[h]) {
                         resultStr += Hundreds[hundredsKeys[h]];
